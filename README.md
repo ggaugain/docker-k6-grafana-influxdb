@@ -16,6 +16,7 @@ A dashboard for visualizing results from the k6.io load testing tool, using the 
 # Requirements
 $ docker
 $ docker-compose
+$ git
 
 # Clone the source repo
 git clone 'https://github.com/ggaugain/docker-k6-grafana-influxdb.git'
