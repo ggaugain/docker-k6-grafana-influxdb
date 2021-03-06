@@ -13,6 +13,10 @@ A dashboard for visualizing results from the k6.io load testing tool, using the 
 **Usage**
 
 ```
+# Requirements
+$ docker
+$ docker-compose
+
 # Clone the source repo
 git clone 'https://github.com/ggaugain/docker-k6-grafana-influxdb.git'
 cd docker-k6-grafana-influxdb
@@ -27,4 +31,9 @@ docker-compose up -d influxdb grafana
 docker-compose run -v $PWD/samples:/scripts k6 run /scripts/k6test.js
 ```
 
-Navigate to https://localhost:3000 to access the Grafana interface.
+Navigate to http://localhost:3000 to access the Grafana interface.
+
+
+**Issue with influxdb:2**
+There is a problem with InfluxDB v2: https://github.com/loadimpact/k6/issues/1883
+Pin the image version to influxdb:1.8 it should work.

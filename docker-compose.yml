@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.4'
 
 networks:
   k6:
@@ -6,7 +6,7 @@ networks:
 
 services:
   influxdb:
-    image: influxdb:latest
+    image: influxdb:1.8
     networks:
       - k6
       - grafana
@@ -27,6 +27,8 @@ services:
       - GF_AUTH_BASIC_ENABLED=false
     volumes:
       - ./grafana:/etc/grafana/provisioning/
+    depends_on:
+      - influxdb
 
   k6:
     image: loadimpact/k6:latest
